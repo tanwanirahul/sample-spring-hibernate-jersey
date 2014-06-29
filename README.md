@@ -1,4 +1,8 @@
-sample-spring-hibernate-jersey
-==============================
+SpringJPATemplate
+=================
 
-The sample project that combines the giants: Spring, Hibernate and Jersey together. 
+This is the base for Maven based Spring MVC and Hibernate persisted application.
+<<<<<<< HEAD
+
+=======
+>>>>>>> c454769eb42250097ead614c54f39e9f7e0b4dd7
