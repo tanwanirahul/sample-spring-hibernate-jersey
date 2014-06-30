@@ -1,7 +1,10 @@
 package com.hashedin.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +26,14 @@ public class TaskRepositoryImpl implements TaskRepository{
         em.persist(task);
         em.flush();
         return task;
+    }
+
+    @Override
+    public List<Task> findAll() {
+        // Returns all the tasks in our system.
+        TypedQuery<Task> query = em.createNamedQuery("Task.findAll", Task.class);
+        List<Task> results = query.getResultList();
+        return results;
     }
 
 }

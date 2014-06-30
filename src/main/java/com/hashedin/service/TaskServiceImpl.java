@@ -1,5 +1,7 @@
 package com.hashedin.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,12 @@ public class TaskServiceImpl implements TaskService{
         // Saves the given task object and returns the same.
         taskRepository.save(task);
         return task;
+    }
+
+    @Override
+    public List<Task> findAll() {
+        // Returns all the tasks in our system.
+        return taskRepository.findAll();
     }
 
 }
