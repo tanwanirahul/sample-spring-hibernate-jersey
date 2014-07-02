@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 import com.hashedin.model.Task;
 
 @Repository("taskRepository")
-public class TaskRepositoryImpl implements TaskRepository{
+public class TaskRepositoryImpl implements TaskRepository
+{
 
     @PersistenceContext
     private EntityManager em;
@@ -34,6 +35,21 @@ public class TaskRepositoryImpl implements TaskRepository{
         TypedQuery<Task> query = em.createNamedQuery("Task.findAll", Task.class);
         List<Task> results = query.getResultList();
         return results;
+    }
+
+    @Override
+    public Task update(Task task, Long taskId)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Task delete(Long taskId)
+    {
+        Task taskToBeDeleted = em.find(Task.class, taskId); 
+        em.remove(taskToBeDeleted);
+        return taskToBeDeleted;
     }
 
 }

@@ -2,7 +2,11 @@ package com.hashedin.rest;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -23,20 +27,48 @@ public class TaskResource
     @Autowired
     private TaskService taskService;
 
-
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public List<Task> list()
     {
+        // Handles GET on /tasks. Lists all the tasks we have in our system.
         return taskService.findAll();
     }
-
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Path("/{taskId}")
     public Task get(@PathParam("taskId") Long taskId)
     {
+        // Handles GET on /tasks/{taskId}. Returns a single task for the given taskId.
         return taskService.find(taskId);
+    }
+
+    @POST
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Task create(Task task)
+    {
+        // Handles POST on /tasks. Creates a new task and adds it into an repository.
+        taskService.save(task);
+        return task;
+    }
+    
+    @PUT
+    @Path("/{taskId}")
+    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Task update(Task task, @PathParam("taskId") Long taskId)
+    {
+        // Handles PUT on /tasks/taskId. Updates the existing task with the new values.
+        return taskService.update(task, taskId);
+    }
+    
+    @DELETE
+    @Path("/{taskId}")
+    public Task delete(@PathParam ("taskId") Long taskId)
+    {
+        // Handles DELETE on /tasks/taskId. Deletes the existing task and returns the same.
+        return taskService.delete(taskId);
     }
 }

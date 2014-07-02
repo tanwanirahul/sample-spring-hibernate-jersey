@@ -119,6 +119,16 @@
    	<artifactId>spring-boot-starter-aop</artifactId>
    	<version>1.0.0.RELEASE</version>
    </dependency>
+   <dependency>
+   	<groupId>org.springframework.boot</groupId>
+   	<artifactId>spring-boot-starter-tomcat</artifactId>
+   	<version>1.0.0.RELEASE</version>
+   </dependency>
+   <dependency>
+   	<groupId>org.springframework.boot</groupId>
+   	<artifactId>spring-boot-starter-remote-shell</artifactId>
+   	<version>1.0.0.RELEASE</version>
+   </dependency>
   </dependencies>
 
   <build>
