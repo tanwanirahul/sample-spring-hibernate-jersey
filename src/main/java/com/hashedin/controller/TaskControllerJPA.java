@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hashedin.model.Task;
 import com.hashedin.service.TaskService;
@@ -17,15 +18,13 @@ public class TaskControllerJPA {
     TaskService taskService;
 
     @RequestMapping(method=RequestMethod.GET, value = "/tasks/persistence")
-    public String getView(@ModelAttribute("tasks") Task task) {
-        return "addTask";
+    public ModelAndView getView(@ModelAttribute("tasks") Task task) {
+        return new ModelAndView("addTask");
     }
     
     @RequestMapping(method=RequestMethod.POST, value = "/tasks/persistence")
-    public String add(Model model, @ModelAttribute("tasks") Task task) {
+    public ModelAndView add(Model model, @ModelAttribute("tasks") Task task) {
         task = taskService.save(task);
-        model.addAttribute("title", task.getTitle());
-        model.addAttribute("id", task.getId());
-        return "taskAddedWithId";
+        return new ModelAndView("taskAddedWithId", "task", task);
     }
 }

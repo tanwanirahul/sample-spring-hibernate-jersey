@@ -7,6 +7,6 @@
 <title>Task Added!</title>
 </head>
 <body>
-<p>Whoa! you have added a new task: <b>${title}.</b></p>
+<p>Whoa! you have added a new task: <b>${task.getTitle()}.</b></p>
 </body>
 </html>

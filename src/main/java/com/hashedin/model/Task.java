@@ -11,9 +11,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-@Table(name="tasks")
-@NamedQueries( { @NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t") })
-public class Task {
+@Table(name = "tasks")
+@NamedQueries({ @NamedQuery(name = "Task.findAll", query = "SELECT t FROM Task t") })
+public class Task
+{
 
     @Id
     @GeneratedValue
@@ -21,19 +22,27 @@ public class Task {
 
     private String title;
 
-    public Long getId() {
+
+    public Long getId()
+    {
         return id;
     }
 
-    public String getTitle() {
+
+    public String getTitle()
+    {
         return title;
     }
 
-    public void setId(Long id) {
+
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public void setTitle(String title) {
+
+    public void setTitle(String title)
+    {
         this.title = title;
     }
 
