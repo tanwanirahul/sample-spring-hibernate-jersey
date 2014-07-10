@@ -1,8 +1,11 @@
 package com.hashedin.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -19,8 +22,35 @@ public class Task
     @Id
     @GeneratedValue
     private Long id;
-
+    
     private String title;
+    
+    private Date creationDate;
+
+    private Date expectedEndDate;
+    
+    @ManyToOne
+    private User assignee;
+
+    @ManyToOne
+    private Project project;
+
+    public User getAssignee()
+    {
+        return assignee;
+    }
+
+
+    public Date getCreationDate()
+    {
+        return creationDate;
+    }
+
+
+    public Date getExpectedEndDate()
+    {
+        return expectedEndDate;
+    }
 
 
     public Long getId()
@@ -32,6 +62,24 @@ public class Task
     public String getTitle()
     {
         return title;
+    }
+
+
+    public void setAssignee(User assignee)
+    {
+        this.assignee = assignee;
+    }
+
+
+    public void setCreationDate(Date creationDate)
+    {
+        this.creationDate = creationDate;
+    }
+
+
+    public void setExpectedEndDate(Date expectedEndDate)
+    {
+        this.expectedEndDate = expectedEndDate;
     }
 
 

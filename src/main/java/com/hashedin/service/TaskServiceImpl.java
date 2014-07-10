@@ -42,11 +42,11 @@ public class TaskServiceImpl implements TaskService
     }
 
 
-    @Override
+    @Transactional
     public Task update(Task task, Long taskId)
     {
         // Updates the task with the given taskId;
-        return null;
+        return taskRepository.update(task, taskId);
     }
 
 
@@ -55,6 +55,14 @@ public class TaskServiceImpl implements TaskService
     {
         // Deletes the task with the give taskId and returns the same.
         return taskRepository.delete(taskId);
+    }
+
+
+    @Override
+    public List<Task> paginate(int offset, int limit)
+    {
+        // Paginates the tasks objects. 
+        return taskRepository.paginate(offset, limit);
     }
 
 }
