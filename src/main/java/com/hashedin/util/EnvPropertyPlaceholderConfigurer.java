@@ -27,6 +27,8 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 public class EnvPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer
 {
 
+	private static final String ENVNAME = "envname";
+
 	/**
 	 * Replaces the values in the origProperties with environment specific values
 	 * 
@@ -83,6 +85,9 @@ public class EnvPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigu
 	 * @return the environment name. A property file with this name must exist in the class path
 	 */
 	private String determineEnvironment() {
+		if(System.getProperty(ENVNAME) != null) {
+			return System.getProperty(ENVNAME);
+		}
 		return "root";
 	}
 }

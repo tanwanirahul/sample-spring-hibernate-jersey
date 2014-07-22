@@ -58,11 +58,10 @@ public class ProjectResource
     @POST
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response create(Project project, @Context final HttpServletResponse response) throws URISyntaxException
+    public Response create(Project project) throws URISyntaxException
     {
         // Handles POST on /projects. Creates a new project and adds it into an repository.
         projectService.save(project);
-        response.setStatus(Response.Status.CREATED.getStatusCode());
         return Response.created(new URI(resourceURI + project.getId())).build();
     }
 
