@@ -10,19 +10,15 @@
 
   <properties>
     <jersey.version>2.4.1</jersey.version>
+    <spring.version>3.2.6.RELEASE</spring.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-webmvc</artifactId>
-    	<version>3.2.6.RELEASE</version>
     </dependency>
     <dependency>
     	<groupId>javax.servlet</groupId>
@@ -41,11 +37,44 @@
     	<artifactId>hibernate-validator</artifactId>
     	<version>4.2.0.Final</version>
     </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>
+        <scope>test</scope>
+    </dependency>
+     <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>${spring.version}</version>
+   </dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-oxm</artifactId>
-		<version>3.2.6.RELEASE</version>
+		<version>${spring.version}</version>
 	</dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>jta</artifactId>
+        <version>1.1</version>
+    </dependency>
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
@@ -56,31 +85,6 @@
 		<artifactId>hibernate-entitymanager</artifactId>
 		<version>4.1.9.Final</version>
 	</dependency>
-	<dependency>
-		<groupId>javax.transaction</groupId>
-		<artifactId>jta</artifactId>
-		<version>1.1</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-jdbc</artifactId>
-		<version>3.2.0.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-orm</artifactId>
-		<version>3.2.0.RELEASE</version>
-	</dependency>
-   <!-- <dependency>
-	  <groupId>com.sun.jersey</groupId>
-	  <artifactId>jersey-server</artifactId>
-	  <version>${jersey-version}</version>
-    </dependency>
-  <dependency>
-	  <groupId>com.sun.jersey.contribs</groupId>
-	  <artifactId>jersey-spring</artifactId>
-	  <version>${jersey-version}</version>
-  </dependency> -->
   
   <!-- Adding the dependencies for Jersey -->
   <dependency>
@@ -114,21 +118,17 @@
 		<version>0.7.1.201405082137</version>
 	</dependency>
  -->
-   <dependency>
-   	<groupId>org.springframework.boot</groupId>
-   	<artifactId>spring-boot-starter-aop</artifactId>
-   	<version>1.0.0.RELEASE</version>
-   </dependency>
-   <dependency>
-   	<groupId>org.springframework.boot</groupId>
-   	<artifactId>spring-boot-starter-tomcat</artifactId>
-   	<version>1.0.0.RELEASE</version>
-   </dependency>
-   <dependency>
-   	<groupId>org.springframework.boot</groupId>
-   	<artifactId>spring-boot-starter-remote-shell</artifactId>
-   	<version>1.0.0.RELEASE</version>
-   </dependency>
+    <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>2.3.2</version>
+    </dependency>
+	<dependency>
+	    <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+	    <artifactId>jersey-test-framework-provider-jetty</artifactId>
+	    <version>2.10.1</version>
+	</dependency>
+	
   </dependencies>
 
   <build>
